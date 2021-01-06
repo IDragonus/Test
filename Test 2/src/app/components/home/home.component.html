@@ -1,0 +1,43 @@
+
+<div class="logOut">
+  <button  mat-raised-button color="primary"(click)="salir()">Log out</button>
+</div>
+
+<div class="container center">
+  <mat-card class="col-12 margin-auto">
+<p>
+  Listado
+ </p>
+
+ <mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+</mat-form-field>
+
+<mat-table [dataSource]="response" matSort>
+  <ng-container matColumnDef="bookingId">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> BookingId</mat-header-cell>
+    <mat-cell *matCellDef="let user"><a > {{user.bookingId}}</a> </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="firstName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Cliente </mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.tutenUserClient.firstName}} {{user.tutenUserClient.lastName}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="bookingTime">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Creación </mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.bookingTime | date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="streetAddress">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.locationId.streetAddress}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="bookingPrice">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Precio</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{user.bookingPrice |currency}} </mat-cell>
+  </ng-container>
+ 
+  <mat-header-row *matHeaderRowDef="['bookingId','firstName','bookingTime','streetAddress','bookingPrice']"></mat-header-row>
+  <mat-row *matRowDef="let myRowData; columns: ['bookingId','firstName','bookingTime','streetAddress','bookingPrice']"></mat-row>
+</mat-table>
+</mat-card>
+</div>
