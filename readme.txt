@@ -1,6 +1,6 @@
 {
     Angular CLI: 6.1.0
-    Bootstrap: 4.2
+    Bootstrap: 4.5.3
     Jquery: 3.5.1
     Angular Material: 11.0.3
     TypeScript: 2.9
